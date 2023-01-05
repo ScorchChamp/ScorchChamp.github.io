@@ -2,11 +2,7 @@ const author = "ScorchChamp";
 
 async function getPages() {
     const reposResponse = await fetch(`https://api.github.com/users/${author}/repos`);
-    // const repos = await reposResponse.json();
-    const repos = [];
-    if (repos.length === 0) {
-        return [parseRepo({"name": "ScorchChamp", "description": "View ScorchChamp's repositories, statistics, and more!", "html_url": "https://github.com/ScorchChamp"})];
-    }
+    const repos = await reposResponse.json();
     return repos.filter(repo => repo.has_pages && repo.topics.includes("tool")).map(repo => parseRepo(repo));
 }
 
