@@ -77,9 +77,10 @@ form {
 
 .form-row {
     display: flex;
-    max-width: 75%;
     align-items: center;
     margin-bottom: 1em;
+    margin-left: 25%;
+    width: 50%;
 }
 
 label {
