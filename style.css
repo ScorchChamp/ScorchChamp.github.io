@@ -2,16 +2,23 @@
 
 
 body {
-    background-color: #eee;
 }
 
 h1 {
     text-align: center;
+    font-weight: 800;
+}
+h2 {
+    font-weight: 800;
+}
+p {
+    font-weight: 100;
 }
 
 h3 {
     text-align: center;
-    color: #333
+    color: #333;
+    font-weight: 200;
 }
 
 * {
@@ -31,6 +38,7 @@ a {
     width: min-content;
     flex-wrap: wrap;
     text-align: center;
+    min-width: 15em;
 }
 
 .repo-source {
@@ -45,6 +53,19 @@ a {
     width: 200px;
     height: 300px;
     background-color: #aaa;
+    animation: loading 3s infinite linear;
+}
+
+@keyframes loading {
+    0% {
+        background-color: #aaa;
+    }
+    25% {
+        background-color: #888;
+    }
+    100% {
+        background-color: #aaa;
+    }
 }
 
 .repo-source:hover {
@@ -53,10 +74,11 @@ a {
 
 .repo {
     align-items: center;
+    /* background: radial-gradient(#444, #333); */
     background-color: #333;
     padding: 25px;
     padding-top: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25);
     transition: box-shadow 0.2s ease-in-out, background-color 0.3s ease-in-out;
 }
 
