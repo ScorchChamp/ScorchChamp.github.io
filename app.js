@@ -45,9 +45,9 @@ function parseTime(timeString) {
     const seconds = Math.floor(diff / 1000);
     const minutes = Math.floor(diff / (1000 * 60));
     const hours = Math.floor(diff / (1000 * 60 * 60));
-    return seconds < 60 ? `${seconds} seconds ago` :
-        minutes < 60 ? `${minutes} minutes ago` :
-            hours < 24 ? `${hours} hours ago` :
+    return seconds < 60 ? `${seconds} second${(seconds > 1 ? "s" : "")} ago` :
+        minutes < 60 ? `${minutes} minute${(minutes > 1 ? "s" : "")} ago` :
+            hours < 24 ? `${hours} hour${(hours > 1 ? "s" : "")} ago` :
                 time.toDateString();
 
 }
