@@ -127,3 +127,35 @@ input[type="file"] {
 .form-row input {
     width: 25%;
 }
+
+
+.last-updated {
+    margin-top: 30%;
+    margin-bottom: 0;
+    font-weight: 100;
+    font-size: 75%;
+}
+
+.last-updated-time {
+    font-weight: 900;
+    color: #006699;
+}
+
+.topics {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.topic {
+    background-color: #006699;
+    color: #eee;
+    margin: 5px;
+    padding: 5px;
+    font-size: 75%;
+    border-radius: 5px;
+}
+
+.repo-name {
+    margin-bottom: 0;
+}
