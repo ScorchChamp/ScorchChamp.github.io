@@ -11,7 +11,6 @@ function parseTopics(topics) {
 }
 
 function parseRepo(repo) {
-    console.log(repo)
     return `
         <div class="repo-container">
             <a href="https://${author}.github.io/${repo.name}" target="_blank">
