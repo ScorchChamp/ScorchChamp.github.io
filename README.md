@@ -27,16 +27,6 @@ This github page ;)
 
 [Look at the showcase demo here!](https://ScorchChamp.github.io/ScorchChamp.github.io)
 
--
--
--
-
-
-## Installation
-
-```cmd
-npm install
-```
 
 ## Usage
 
