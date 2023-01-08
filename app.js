@@ -1,7 +1,7 @@
 const author = "ScorchChamp";
 
 async function getPages() {
-    const reposResponse = await fetch(`https://api.github.com/users/${author}/repos`);
+    const reposResponse = await fetch(`https://api.github.com/users/${author}/repos?per_page=100`);
     const repos = await reposResponse.json();
     return repos.filter(repo => repo.has_pages).map(repo => parseRepo(repo));
 }
