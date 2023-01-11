@@ -18,9 +18,9 @@ document.body.insertBefore(headerElement, firstChild);
 document.body.insertBefore(h1Element, firstChild);
 
 const splitted = document.location.href.split("/");
-let repoName = splitted[splitted.length - 1]
+let repoName = splitted[splitted.length - 2]
 const homePage = document.location.origin
-let username = splitted[splitted.length - 2];
+let username = splitted[splitted.length - 3].split(".")[0];
 
 capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
