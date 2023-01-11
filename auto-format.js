@@ -22,12 +22,7 @@ let repoName = splitted[splitted.length - 1]
 const homePage = document.location.origin
 let username = splitted[splitted.length - 2];
 
-
-
 capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
-
-repoName = 'scorchchamp.github.io'
-username = 'scorchchamp'
 
 document.title = repoName.replaceAll("-", " ").replaceAll("_", " ");
 h1Element.textContent = capitalizeFirstLetter(document.title);
