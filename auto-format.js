@@ -59,7 +59,6 @@ fetch(`https://api.github.com/repos/${username}/${repoName}`)
     document.body.insertBefore(h2Element, firstChild);
 });
 
-
-window.onload = function runCode() {
+window.addEventListener("load", function() {
     document.body.append(footerElement);
-}
+})
