@@ -3,6 +3,8 @@
 
 body {
     background-color: #eee;
+    padding: 0;
+    margin: 0;
 }
 
 h1 {
@@ -159,4 +161,59 @@ input[type="file"] {
 
 .repo-name {
     margin-bottom: 0;
+}
+
+.header {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+}
+
+.header-title {
+    margin: 15px;
+    font-weight: 900;
+
+}
+
+.undertitle {
+    font-weight: 100;
+    font-size: 15px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0 0 50px;
+    font-size: 15px;
+    font-style: italic;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    margin-top: 100px;
+}
+.information {
+    font-weight: 100;
+    word-wrap: break-word;
+}
+
+.footer * {
+    margin: 10px;
+}
+
+.copyright {
+    margin-top: 50px;
+}
+
+.footer-group {
+    font-weight: 900;
+    font-style: normal;
+    margin-top: 10px;
+    flex-direction: column;
+    max-width: 50%;
+}
+
+.information {
+    font-style: italic;
 }
