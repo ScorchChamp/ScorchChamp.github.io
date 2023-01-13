@@ -75,9 +75,9 @@ const adScript = document.createElement('script');
 adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
 adScript.setAttribute('crossorigin', 'anonymous');
 adScript.toggleAttribute('async');
+document.head.appendChild(adScript);
 
 document.body.insertBefore(adElement, firstChild);
-document.body.insertBefore(adScript, firstChild);
 
 
 (adsbygoogle = window.adsbygoogle || []).push({});
