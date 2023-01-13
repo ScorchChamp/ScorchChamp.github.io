@@ -62,3 +62,22 @@ fetch(`https://api.github.com/repos/${username}/${repoName}`)
 window.addEventListener("load", function() {
     document.body.append(footerElement);
 })
+     
+const adElement = document.createElement('ins');
+adElement.setAttribute('class', 'adsbygoogle');
+adElement.setAttribute('style', 'display:block');
+adElement.setAttribute('data-ad-client', 'ca-pub-5779624385801311');
+adElement.setAttribute('data-ad-slot', '3362420111');
+adElement.setAttribute('data-ad-format', 'auto');
+adElement.setAttribute('data-full-width-responsive', 'true');
+
+const adScript = document.createElement('script');
+adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
+adScript.setAttribute('crossorigin', 'anonymous');
+adScript.toggleAttribute('async');
+
+document.body.insertBefore(adElement, firstChild);
+document.body.insertBefore(adScript, firstChild);
+
+
+(adsbygoogle = window.adsbygoogle || []).push({});
