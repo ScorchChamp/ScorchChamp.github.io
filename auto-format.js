@@ -5,7 +5,8 @@ if (!document.getElementById('css'))
     link.id   = 'css';
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://scorchchamp.github.io/style.css';
+    // link.href = 'https://scorchchamp.github.io/style.css';
+    link.href = '/style.css';
     link.media = 'all';
     head.appendChild(link);
 }
@@ -21,6 +22,9 @@ const splitted = document.location.href.split("/");
 let repoName = splitted[splitted.length - 2]
 const homePage = document.location.origin
 let username = splitted[splitted.length - 3].split(".")[0];
+if (username === '') {
+    username = repoName.split('.')[0]
+}
 
 capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -57,6 +61,11 @@ fetch(`https://api.github.com/repos/${username}/${repoName}`)
     h2Element.classList.add("undertitle");
     h2Element.textContent = data.description;
     document.body.insertBefore(h2Element, firstChild);
+
+    const metaDescription = document.createElement('meta');
+    metaDescription.setAttribute('name', 'description');
+    metaDescription.setAttribute('content', data.description);
+    document.head.appendChild(metaDescription);
 });
 
 window.addEventListener("load", function() {
@@ -79,5 +88,9 @@ document.head.appendChild(adScript);
 
 document.body.insertBefore(adElement, firstChild);
 
+const metaView = document.createElement('meta');
+metaView.setAttribute('name', 'viewport');
+metaView.setAttribute('content', 'width=device-width, initial-scale=1');
+document.head.appendChild(metaView);
 
 (adsbygoogle = window.adsbygoogle || []).push({});

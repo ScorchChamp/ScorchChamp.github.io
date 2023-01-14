@@ -15,10 +15,10 @@ function parseRepo(repo) {
         <div class="repo-container">
             <a href="https://${author}.github.io/${repo.name}" target="_blank">
                 <div class="repo">
-                    <h2 class="repo-name">${repo.name}</h2>
+                    <h3 class="repo-name">${repo.name}</h3>
                     <div class="topics">${parseTopics(repo.topics)}</div>
                     <p>${repo.description}</p>
-                    <h5 class="last-updated">Last update <span class="last-updated-time">${parseTime(repo.updated_at)}</span></h5>
+                    <h4 class="last-updated">Last update <span class="last-updated-time">${parseTime(repo.updated_at)}</span></h4>
                 </div>
             </a>
             <a href="${repo.html_url}" target="_blank">
