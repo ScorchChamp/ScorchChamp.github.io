@@ -5,11 +5,12 @@ if (!document.getElementById('css'))
     link.id   = 'css';
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    // link.href = 'https://scorchchamp.github.io/style.css';
-    link.href = '/style.css';
+    link.href = 'https://scorchchamp.github.io/style.css';
     link.media = 'all';
     head.appendChild(link);
 }
+
+document.getElementsByTagName('html')[0].setAttribute('lang', 'en')
 
 const headerElement = document.createElement("div");
 const footerElement = document.createElement("div");
@@ -33,7 +34,7 @@ h1Element.textContent = capitalizeFirstLetter(document.title);
 
 headerElement.classList.add("header");
 headerElement.innerHTML = `
-    <a href="${homePage}">
+    <a href="${homePage}" aria-label="Go back to Scorchchamp's homepage!">
         <div class="header-title" id="header-description">${capitalizeFirstLetter(username)}</div>
     </a>
 `
