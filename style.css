@@ -199,11 +199,11 @@ input[type="file"] {
     color: #fff;
     display: flex;
     box-shadow: 5px 5px 5px #888;
-    position: absolute;
 }
 
 .header-title {
     font-weight: 900;
+    padding: 15px;
 
 }
 
@@ -254,6 +254,7 @@ input[type="file"] {
     margin-left: 15% !important;
     margin-right: 15% !important;
     background-color: white;
+    margin-top: 10px;
     padding: 25px;
     padding-bottom: 50px;
 }
