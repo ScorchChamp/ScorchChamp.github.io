@@ -1,10 +1,14 @@
 const author = "ScorchChamp";
-
-document.getElementsByTagName('body')[0].innerHTML = `
-    <div class='app-container' id='app-container'>
-        ${document.getElementsByTagName('body')[0].innerHTML}
-    </div>
-`
+const headerElement = document.createElement("div");
+const footerElement = document.createElement("div");
+const h1Element = document.createElement("h1");
+const firstChild = document.body.firstChild;
+const splitted = document.location.href.split("/");
+const homePage = document.location.origin
+const adElement = document.createElement('ins');
+const adScript = document.createElement('script');
+const metaView = document.createElement('meta');
+capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 function getRepos(callback) {
     if (localStorage.getItem('repos') !== null) {
@@ -21,6 +25,11 @@ function getRepos(callback) {
 }
 
 
+document.getElementsByTagName('body')[0].innerHTML = `
+    <div class='app-container' id='app-container'>
+        ${document.getElementsByTagName('body')[0].innerHTML}
+    </div>
+`
 if (!document.getElementById('css')) {
     var head = document.getElementsByTagName('head')[0];
     var link = document.createElement('link');
@@ -33,23 +42,15 @@ if (!document.getElementById('css')) {
 }
 
 document.getElementsByTagName('html')[0].setAttribute('lang', 'en')
-
-const headerElement = document.createElement("div");
-const footerElement = document.createElement("div");
-const h1Element = document.createElement("h1");
-const firstChild = document.body.firstChild;
 document.body.insertBefore(headerElement, firstChild);
 document.body.insertBefore(h1Element, firstChild);
 
-const splitted = document.location.href.split("/");
 let repoName = splitted[splitted.length - 2]
-const homePage = document.location.origin
 let username = splitted[splitted.length - 3].split(".")[0];
 if (username === '') {
     username = repoName.split('.')[0]
 }
 
-capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 document.title = repoName.replaceAll("-", " ").replaceAll("_", " ");
 h1Element.textContent = capitalizeFirstLetter(document.title);
@@ -93,7 +94,6 @@ window.addEventListener("load", function () {
     document.body.append(footerElement);
 })
 
-const adElement = document.createElement('ins');
 adElement.setAttribute('class', 'adsbygoogle');
 adElement.setAttribute('style', 'display:block');
 adElement.setAttribute('data-ad-client', 'ca-pub-5779624385801311');
@@ -101,7 +101,6 @@ adElement.setAttribute('data-ad-slot', '3362420111');
 adElement.setAttribute('data-ad-format', 'auto');
 adElement.setAttribute('data-full-width-responsive', 'true');
 
-const adScript = document.createElement('script');
 adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
 adScript.setAttribute('crossorigin', 'anonymous');
 adScript.toggleAttribute('async');
@@ -109,7 +108,6 @@ document.head.appendChild(adScript);
 
 document.body.insertBefore(adElement, firstChild);
 
-const metaView = document.createElement('meta');
 metaView.setAttribute('name', 'viewport');
 metaView.setAttribute('content', 'width=device-width, initial-scale=1');
 document.head.appendChild(metaView);
