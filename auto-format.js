@@ -1,9 +1,31 @@
-if (!document.getElementById('css'))
-{
-    var head  = document.getElementsByTagName('head')[0];
-    var link  = document.createElement('link');
-    link.id   = 'css';
-    link.rel  = 'stylesheet';
+const author = "ScorchChamp";
+
+document.getElementsByTagName('body')[0].innerHTML = `
+    <div class='app-container' id='app-container'>
+        ${document.getElementsByTagName('body')[0].innerHTML}
+    </div>
+`
+
+function getRepos(callback) {
+    if (localStorage.getItem('repos') !== null) {
+        callback(JSON.parse(localStorage.getItem('repos')))
+    } else {
+        fetch(`https://api.github.com/users/${author}/repos?per_page=100`)
+            .then(data => data.json())
+            .then(repos => {
+                console.log('CALLING GITHUB');
+                localStorage.setItem('repos', JSON.stringify(repos));
+                callback(repos)
+            })
+    }
+}
+
+
+if (!document.getElementById('css')) {
+    var head = document.getElementsByTagName('head')[0];
+    var link = document.createElement('link');
+    link.id = 'css';
+    link.rel = 'stylesheet';
     link.type = 'text/css';
     link.href = 'https://scorchchamp.github.io/style.css';
     link.media = 'all';
@@ -55,9 +77,7 @@ footerElement.innerHTML = `
     </div>
 `
 
-fetch(`https://api.github.com/repos/${username}/${repoName}`)
-.then((result) => result.json())
-.then((data) => {
+getRepos(function (data) {
     const h2Element = document.createElement("h2");
     h2Element.classList.add("undertitle");
     h2Element.textContent = data.description;
@@ -67,12 +87,12 @@ fetch(`https://api.github.com/repos/${username}/${repoName}`)
     metaDescription.setAttribute('name', 'description');
     metaDescription.setAttribute('content', data.description);
     document.head.appendChild(metaDescription);
-});
+})
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     document.body.append(footerElement);
 })
-     
+
 const adElement = document.createElement('ins');
 adElement.setAttribute('class', 'adsbygoogle');
 adElement.setAttribute('style', 'display:block');

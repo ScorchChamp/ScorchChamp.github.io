@@ -1,10 +1,3 @@
-const author = "ScorchChamp";
-
-async function getPages() {
-    const reposResponse = await fetch(`https://api.github.com/users/${author}/repos?per_page=100`);
-    const repos = await reposResponse.json();
-    return repos.filter(repo => repo.has_pages).map(repo => parseRepo(repo));
-}
 
 function parseTopics(topics) {
     return topics.map(topic => `<div class="topic">${topic}</div>`).join('');
@@ -31,10 +24,13 @@ function parseRepo(repo) {
 }
 
 
-async function displayPages() {
-    const pages = await getPages();
-    const container = document.querySelector('.container');
-    container.innerHTML = pages.join('');
+function displayPages() {
+    getRepos(function (pages) {
+        const container = document.querySelector('.container');
+        container.innerHTML = pages.filter(repo => repo.has_pages)
+            .map(repo => parseRepo(repo))
+            .join('');
+    });
 }
 
 function parseTime(timeString) {
@@ -45,9 +41,9 @@ function parseTime(timeString) {
     const minutes = Math.floor(diff / (1000 * 60));
     const hours = Math.floor(diff / (1000 * 60 * 60));
     return seconds < 60 ? `${seconds} second${(seconds > 1 ? "s" : "")} ago` :
-        minutes < 60 ? `${minutes} minute${(minutes > 1 ? "s" : "")} ago` :
-            hours < 24 ? `${hours} hour${(hours > 1 ? "s" : "")} ago` :
-                time.toDateString();
+           minutes < 60 ? `${minutes} minute${(minutes > 1 ? "s" : "")} ago` :
+           hours < 24   ? `${hours} hour${(hours > 1 ? "s" : "")} ago` :
+           time.toDateString();
 
 }
 

@@ -226,3 +226,8 @@ input[type="file"] {
 .information {
     font-style: italic;
 }
+
+.app-container {
+    margin-left: 25%;
+    margin-right: 25%;
+}
