@@ -13,7 +13,7 @@ jobs:
       - name: Generate Sitemap
         run: |
           echo "https://scorchchamp.github.io" > sitemap.txt
-          git ls-files -z | xargs -0 -I % sh -c "echo https://${{ secrets.DOMAIN }}/% >> sitemap.txt"
+          git ls-files -z | xargs -0 -I % sh -c "echo https://scorchchamp.github.io/% >> sitemap.txt"
       - name: Upload Sitemap
         uses: actions/upload-artifact@v2
         with:
