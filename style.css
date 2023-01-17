@@ -46,7 +46,6 @@ p {
 }
 
 a {
-
     color: #eee;
     text-decoration: none;
 }
@@ -171,6 +170,10 @@ input[type="file"] {
 
 .last-updated-time {
     font-weight: 900;
+    color: #006699;
+}
+
+.url {
     color: #006699;
 }
 

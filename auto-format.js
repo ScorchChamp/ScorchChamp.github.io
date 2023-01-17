@@ -38,7 +38,7 @@ window.addEventListener("load", function () {
         link.id = 'css';
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'https://scorchchamp.github.io/style.css';
+        link.href = `${document.location.origin}/style.css`;
         link.media = 'all';
         head.appendChild(link);
     }
@@ -75,6 +75,10 @@ window.addEventListener("load", function () {
                 <div class="footer-header">About ScorchChamp</div>
                 <div class="information">Scorch is a fanatic programmer who wants to program 24/7.</div>
                 <div class="information">He decided to challenge himself to a 365 application challenge to see how consistent and creative he is</div>
+            </div>
+            <div class="footer-group">
+            <div class="footer-header">About this website</div>
+                <div class="information"><a href="https://scorchchamp.github.io/sitemap.html" class="url">Check out the sitemap!</a>
             </div>
             <div class="copyright">&#169; ${capitalizeFirstLetter(username)} - 2023 All rights reserved</div>
         </div>
