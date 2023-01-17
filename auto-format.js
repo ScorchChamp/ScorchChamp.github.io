@@ -17,7 +17,6 @@ function getRepos(callback) {
     }
 }
 
-
 window.addEventListener("load", function () {
     document.getElementsByTagName('body')[0].innerHTML = `
         <div class='app-container' id='app-container'>
@@ -81,16 +80,23 @@ window.addEventListener("load", function () {
         </div>
     `
 
-    getRepos(function (data) {
-        const h2Element = document.createElement("h2");
-        h2Element.classList.add("undertitle");
-        h2Element.textContent = data.description;
-        appContainer.insertBefore(h2Element, firstChild);
 
-        const metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        metaDescription.setAttribute('content', data.description);
-        document.head.appendChild(metaDescription);
+
+    getRepos(function (data) {
+        data.forEach(repo => {
+            if (repo.name === repoName) {
+                const h2Element = document.createElement("h2");
+                h2Element.classList.add("undertitle");
+                h2Element.textContent = repo.description;
+                appContainer.insertBefore(h2Element, firstChild);
+
+                const metaDescription = document.createElement('meta');
+                metaDescription.setAttribute('name', 'description');
+                metaDescription.setAttribute('content', repo.description);
+                document.head.appendChild(metaDescription);
+            }
+        })
+
     })
 
 
