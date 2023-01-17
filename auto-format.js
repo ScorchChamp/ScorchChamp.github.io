@@ -84,8 +84,7 @@ window.addEventListener("load", function () {
 
     getRepos(function (data) {
         data.forEach(repo => {
-            console.log(repo.name, repoName)
-            if (repo.name === repoName) {
+            if (repo.name.toLowerCase() === repoName.toLowerCase()) {
                 const h2Element = document.createElement("h2");
                 h2Element.classList.add("undertitle");
                 h2Element.textContent = repo.description;
