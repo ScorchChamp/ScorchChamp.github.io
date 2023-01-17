@@ -78,7 +78,7 @@ window.addEventListener("load", function () {
             </div>
             <div class="footer-group">
             <div class="footer-header">About this website</div>
-                <div class="information"><a href="https://scorchchamp.github.io/sitemap.html" class="url">Check out the sitemap!</a>
+                <div class="information"><a href="https://scorchchamp.github.io/sitemap.txt" class="url">Check out the sitemap!</a>
             </div>
             <div class="copyright">&#169; ${capitalizeFirstLetter(username)} - 2023 All rights reserved</div>
         </div>
