@@ -1,0 +1,21 @@
+name: Generate Sitemap
+on:
+  push:
+    branches:
+      - main
+jobs:
+  generate_sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Sitemap
+        run: |
+          echo "https://scorchchamp.github.io" > sitemap.txt
+      - name: Generate Sitemap
+        run: |
+          echo "https://scorchchamp.github.io" > sitemap.txt
+          git ls-files -z | xargs -0 -I % sh -c "echo https://${{ secrets.DOMAIN }}/% >> sitemap.txt"
+      - name: Upload Sitemap
+        uses: actions/upload-artifact@v2
+        with:
+          name: sitemap
+          path: sitemap.txt
