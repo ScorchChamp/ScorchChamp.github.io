@@ -20,11 +20,9 @@ function parseTopics(topics) {
 
 function parseRepo(repo) {
     return `
-            <a href="https://${author}.github.io/${repo.name}" target="_blank">
-                <div class="repo">
-                    <h3 class="repo-name">${repo.name} - ${parseTime(repo.updated_at)}</h3>
-                </div>
-            </a>
+        <a href="https://${author}.github.io/${repo.name}" target="_blank">
+            ${repo.name}
+        </a>
     `;
 }
 
@@ -32,9 +30,9 @@ function parseRepo(repo) {
 function displayPages() {
     getRepos(function (pages) {
         const container = document.querySelector('.container');
-        container.innerHTML = pages.filter(repo => repo.has_pages)
-            .map(repo => parseRepo(repo))
-            .join('');
+        container.innerHTML = '<ul>' + pages.filter(repo => repo.has_pages)
+            .map(repo => `<li>${parseRepo(repo)}</li>`)
+            .join('') + '</ul>';
     });
 }
 
