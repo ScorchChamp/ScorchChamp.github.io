@@ -8,6 +8,7 @@ function parseRepo(repo) {
         <div class="repo-container">
             <a href="https://${author}.github.io/${repo.name}" target="_blank">
                 <div class="repo">
+                    <h3 class="index">Project #${repo.index}</h3>
                     <h3 class="repo-name">${repo.name}</h3>
                     <div class="topics">${parseTopics(repo.topics)}</div>
                     <p>${repo.description}</p>
@@ -26,9 +27,10 @@ function parseRepo(repo) {
 
 function displayPages() {
     getRepos(function (pages) {
+        pages = pages.filter(repo => repo.has_pages).sort((a, b) => (a.created_at > b.created_at) ? 1 : -1)
+        pages.forEach((page, index) => page.index = index+1)
         const container = document.querySelector('.container');
-        container.innerHTML = pages.filter(repo => repo.has_pages)
-            .map(repo => parseRepo(repo))
+        container.innerHTML = pages.map(repo => parseRepo(repo))
             .join('');
     });
 }
