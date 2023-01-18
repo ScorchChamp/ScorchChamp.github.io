@@ -29,7 +29,6 @@ window.addEventListener("load", function () {
     const footerElement = document.createElement("div");
     const h1Element = document.createElement("h1");
     const adElement = document.createElement('ins');
-    const adScript = document.createElement('script');
     const metaView = document.createElement('meta');
     var head = document.getElementsByTagName('head')[0];
 
@@ -106,18 +105,20 @@ window.addEventListener("load", function () {
     // adElement.setAttribute('data-ad-slot', '3362420111');
     // adElement.setAttribute('data-ad-format', 'auto');
     // adElement.setAttribute('data-full-width-responsive', 'true');
-    // document.head.appendChild(adElement);
+    // appContainer.appendChild(adElement);
 
-    adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
-    adScript.setAttribute('crossorigin', 'anonymous');
-    adScript.toggleAttribute('async');
-    document.head.appendChild(adScript);
 
     metaView.setAttribute('name', 'viewport');
     metaView.setAttribute('content', 'width=device-width, initial-scale=1');
     document.head.appendChild(metaView);
 
-    (adsbygoogle = window.adsbygoogle || []).push({});
 
     document.body.append(footerElement);
 })
+
+const adScript = document.createElement('script');
+adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
+adScript.setAttribute('crossorigin', 'anonymous');
+adScript.toggleAttribute('async');
+document.head.appendChild(adScript);
+(adsbygoogle = window.adsbygoogle || []).push({});
