@@ -11,10 +11,6 @@ jobs:
   create-txt-file:
     runs-on: ubuntu-latest
     steps:
-    - name: Set environment variable "commit-message"
-      run: echo "commit-message=$(git log -1 --pretty=format:'%s')" >> $GITHUB_ENV
-    - name: Set environment variable "commit-author"
-      run: echo "commit-author=$(git log -1 --pretty=format:'%an')" >> $GITHUB_ENV
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Get list of repos with GitHub Pages for a specific user
