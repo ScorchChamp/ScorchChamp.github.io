@@ -28,9 +28,10 @@ jobs:
       with:
         name: sitemap
         path: sitemap.txt
-    - name: GIT Commit Build Artifacts
+    - name: Commit and push the artifact
       run: |
-        git config --global user.name "${{ env.commit-author }}"
-        git config --global user.email "scorchchamp@users.noreply.github.com"
-        git commit -a -m "${{ env.commit-message }}"
+        git config --local user.email "scorchchamp@gmail.com"
+        git config --local user.name "ScorchChamp"
+        git add sitemap.txt
+        git commit -m "Add sitemap.txt"
         git push
