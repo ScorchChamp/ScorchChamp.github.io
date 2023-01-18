@@ -19,5 +19,5 @@ jobs:
     - name: Upload txt file to GitHub
       uses: actions/upload-artifact@v2
       with:
-        name: repos-with-github-pages-<username>.txt
-        path: repos.txt
+        name: repos-with-github-pages-scorchchamp.txt
+        path: sitemap.txt
