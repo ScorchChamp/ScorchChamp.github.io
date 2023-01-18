@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'sitemap.txt'
   schedule:
   - cron: "15,30,45 * * * *"
 jobs:
@@ -17,8 +19,15 @@ jobs:
         echo $REPOS | jq -r '.[] | select(try .has_pages==true) | "https://scorchchamp.github.io/" + .name' > sitemap.txt  
     - name: Print the result sitemap
       run: cat sitemap.txt
-    - name: Upload txt file to GitHub
+    - name: Upload Sitemap
       uses: actions/upload-artifact@v2
       with:
-        name: sitemap.txt
+        name: sitemap
         path: sitemap.txt
+    - name: Commit and push the artifact
+      uses: actions/git@v2
+      with:
+        repo: ${{github.repository}}
+        branch: main
+        message: Add sitemap.txt to my-artifact-branch
+        actions: push
