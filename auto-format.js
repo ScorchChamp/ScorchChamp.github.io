@@ -31,17 +31,15 @@ window.addEventListener("load", function () {
     const adElement = document.createElement('ins');
     const adScript = document.createElement('script');
     const metaView = document.createElement('meta');
+    var head = document.getElementsByTagName('head')[0];
 
-    if (!document.getElementById('css')) {
-        var head = document.getElementsByTagName('head')[0];
-        var link = document.createElement('link');
-        link.id = 'css';
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = `${document.location.origin}/style.css`;
-        link.media = 'all';
-        head.appendChild(link);
-    }
+    var link3 = document.createElement('link');
+    link3.id = 'css';
+    link3.rel = 'stylesheet';
+    link3.type = 'text/css';
+    link3.href = `${document.location.origin}/style.css`;
+    link3.media = 'all';
+    head.appendChild(link3);
 
     document.getElementsByTagName('html')[0].setAttribute('lang', 'en')
     document.body.insertBefore(headerElement, document.body.firstChild);
@@ -65,23 +63,21 @@ window.addEventListener("load", function () {
     `
     footerElement.classList.add("footer");
     footerElement.innerHTML = `
-        <div class="footer" id="footer">
-            <div class="footer-group">
-                <div class="footer-header">Information</div>
-                <div class="information">This page is part of the 365 day challenge by Scorchchamp.</div>
-                <div class="information">Check out more at <a href="${homePage}">${homePage}</a></div>
-            </div>
-            <div class="footer-group">
-                <div class="footer-header">About ScorchChamp</div>
-                <div class="information">Scorch is a fanatic programmer who wants to program 24/7.</div>
-                <div class="information">He decided to challenge himself to a 365 application challenge to see how consistent and creative he is</div>
-            </div>
-            <div class="footer-group">
-            <div class="footer-header">About this website</div>
-                <div class="information"><a href="https://scorchchamp.github.io/sitemap.txt" class="url">Check out the sitemap!</a>
-            </div>
-            <div class="copyright">&#169; ${capitalizeFirstLetter(username)} - 2023 All rights reserved</div>
+        <div class="footer-group">
+            <div class="footer-header">Information</div>
+            <div class="information">This page is part of the 365 day challenge by Scorchchamp.</div>
+            <div class="information">Check out more at <a href="${homePage}" class="url">${homePage}</a></div>
         </div>
+        <div class="footer-group">
+            <div class="footer-header">About ScorchChamp</div>
+            <div class="information">Scorch is a fanatic programmer who wants to program 24/7.</div>
+            <div class="information">He decided to challenge himself to a 365 application challenge to see how consistent and creative he is</div>
+        </div>
+        <div class="footer-group">
+        <div class="footer-header">About this website</div>
+            <div class="information"><a href="https://scorchchamp.github.io/sitemap.txt" class="url">Check out the sitemap!</a>
+        </div>
+        <div class="copyright">&#169; ${capitalizeFirstLetter(username)} - 2023 All rights reserved</div>
     `
 
 
@@ -104,19 +100,18 @@ window.addEventListener("load", function () {
     })
 
 
-    adElement.setAttribute('class', 'adsbygoogle');
-    adElement.setAttribute('style', 'display:block');
-    adElement.setAttribute('data-ad-client', 'ca-pub-5779624385801311');
-    adElement.setAttribute('data-ad-slot', '3362420111');
-    adElement.setAttribute('data-ad-format', 'auto');
-    adElement.setAttribute('data-full-width-responsive', 'true');
+    // adElement.setAttribute('class', 'adsbygoogle');
+    // adElement.setAttribute('style', 'display:block');
+    // adElement.setAttribute('data-ad-client', 'ca-pub-5779624385801311');
+    // adElement.setAttribute('data-ad-slot', '3362420111');
+    // adElement.setAttribute('data-ad-format', 'auto');
+    // adElement.setAttribute('data-full-width-responsive', 'true');
+    // document.head.appendChild(adElement);
 
     adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
     adScript.setAttribute('crossorigin', 'anonymous');
     adScript.toggleAttribute('async');
     document.head.appendChild(adScript);
-
-    appContainer.insertBefore(adElement, firstChild);
 
     metaView.setAttribute('name', 'viewport');
     metaView.setAttribute('content', 'width=device-width, initial-scale=1');
