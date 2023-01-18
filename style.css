@@ -16,7 +16,7 @@
 
     --tertiary: #006196;
     --onTeriary: #ffffff;
-    --tertiaryC: #00a6ff;
+    --tertiaryC: #a2dfff;
     --onTertiaryC: #211534;
 
     --background: #fcfcff;
@@ -177,11 +177,11 @@ input[type="file"] {
     margin-top: 30%;
     margin-bottom: 0;
     font-weight: 100;
-    font-size: 75%;
+    font-size: 80%;
 }
 
 .last-updated-time {
-    font-weight: 900;
+    font-weight: 500;
     color: var(--tertiaryC);
 }
 
