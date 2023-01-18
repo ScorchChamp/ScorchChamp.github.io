@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Get list of repos with GitHub Pages for a specific user
       run: |
         REPOS=$(curl https://api.github.com/users/ScorchChamp/repos?per_page=100)
@@ -20,14 +20,13 @@ jobs:
     - name: Print the result sitemap
       run: cat sitemap.txt
     - name: Upload Sitemap
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: sitemap
         path: sitemap.txt
-    - name: Commit and push the artifact
-      uses: actions/git@v2
-      with:
-        repo: ${{github.repository}}
-        branch: main
-        message: Add sitemap.txt to my-artifact-branch
-        actions: push
+    - name: GIT Commit Build Artifacts
+      run: |
+        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.email "username@users.noreply.github.com"
+        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+        git push
