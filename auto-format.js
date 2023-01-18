@@ -32,6 +32,15 @@ window.addEventListener("load", function () {
     const metaView = document.createElement('meta');
     var head = document.getElementsByTagName('head')[0];
 
+    var link2 = document.createElement('link');
+    link2.id = 'css';
+    link2.rel = 'preload';
+    link2.href = `https://fonts.gstatic.com/s/firacode/v21/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKQ.woff`;
+    link2.as = 'font';
+    link2.type = 'font/woff2';
+    link2.toggleAttribute('crossorigin');
+    head.appendChild(link2);
+
     var link3 = document.createElement('link');
     link3.id = 'css';
     link3.rel = 'stylesheet';

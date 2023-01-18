@@ -1,4 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Fira+Code");
+@font-face {
+    font-family: 'Fira Code';
+    src: url(https://fonts.gstatic.com/s/firacode/v21/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKQ.woff) format('woff');
+    font-display: swap;
+}
 
 :root {
     --primary: #444;
@@ -30,11 +34,14 @@ body {
     margin: 0;
     flex-direction: column;
 }
+
 * {
     font-family: "Fira Code", monospace;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     text-align: center;
     font-weight: 800;
     word-wrap: break-word;
@@ -281,9 +288,11 @@ input[type="file"] {
     .footer {
         padding: 0;
     }
+
     * {
         text-align: center;
     }
+
     .app-container {
         margin: 0;
     }
