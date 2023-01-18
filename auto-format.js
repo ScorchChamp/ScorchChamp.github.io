@@ -114,12 +114,12 @@ window.addEventListener("load", function () {
     document.body.append(footerElement);
 })
 
-// const adScript = document.createElement('script');
-// adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
-// adScript.setAttribute('crossorigin', 'anonymous');
-// adScript.toggleAttribute('async');
-// document.head.appendChild(adScript);
-// (adsbygoogle = window.adsbygoogle || []).push({});
+const adScript = document.createElement('script');
+adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
+adScript.setAttribute('crossorigin', 'anonymous');
+adScript.toggleAttribute('async');
+document.head.appendChild(adScript);
+(adsbygoogle = window.adsbygoogle || []).push({});
 
 const metaCharset = document.createElement('meta');
 metaCharset.setAttribute('charset', 'utf-8');
