@@ -14,9 +14,9 @@
     --secondaryC: #777;
     --onSecondaryC: #0d1d2a;
 
-    --tertiary: #0089d3;
+    --tertiary: #006196;
     --onTeriary: #ffffff;
-    --tertiaryC: #ecdcff;
+    --tertiaryC: #00a6ff;
     --onTertiaryC: #211534;
 
     --background: #fcfcff;
@@ -182,7 +182,7 @@ input[type="file"] {
 
 .last-updated-time {
     font-weight: 900;
-    color: var(--tertiary);
+    color: var(--tertiaryC);
 }
 
 .url {
