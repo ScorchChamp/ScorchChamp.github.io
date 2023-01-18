@@ -131,3 +131,7 @@ adScript.setAttribute('crossorigin', 'anonymous');
 adScript.toggleAttribute('async');
 document.head.appendChild(adScript);
 (adsbygoogle = window.adsbygoogle || []).push({});
+
+const metaCharset = document.createElement('meta');
+metaCharset.setAttribute('charset', 'utf-8');
+document.head.appendChild(metaCharset);
