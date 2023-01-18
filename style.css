@@ -186,7 +186,7 @@ input[type="file"] {
 }
 
 .url {
-    color: var(--tertiary);
+    color: var(--tertiaryC);
     text-decoration: none;
     word-wrap: break-word;
 }
