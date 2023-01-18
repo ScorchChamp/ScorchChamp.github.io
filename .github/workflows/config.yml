@@ -27,10 +27,8 @@ jobs:
     - name: Commit and push the artifact
       continue-on-error: true
       run: |
-        try {
-          git config --local user.email "39032749+ScorchChamp@users.noreply.github.com"
-          git config --local user.name "ScorchChamp"
-          git add sitemap.txt
-          git commit -m "Add sitemap.txt"
+          git config --local user.email "39032749+ScorchChamp@users.noreply.github.com" &&\
+          git config --local user.name "ScorchChamp" &&\
+          git add sitemap.txt &&\
+          git commit -m "Add sitemap.txt" &&\
           git push
-        } catch {}
