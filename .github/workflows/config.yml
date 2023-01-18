@@ -13,9 +13,8 @@ jobs:
       uses: actions/checkout@v2
     - name: Get list of repos with GitHub Pages for a specific user
       run: |
-        USERNAME=ScorchChamp
-        REPOS=$(curl https://api.github.com/users/$USERNAME/repos?q=github-pages+in:topics)
-        echo $REPOS > repos.txt
+        REPOS=$(curl https://api.github.com/users/ScorchChamp/repos?per_page=100)
+        echo $(echo $REPOS | jq -r '.[] | select(try .has_pages==true) | .name | map("https://scorchchamp.github.io/" + .)') > repos.txt
     - name: Upload txt file to GitHub
       uses: actions/upload-artifact@v2
       with:
