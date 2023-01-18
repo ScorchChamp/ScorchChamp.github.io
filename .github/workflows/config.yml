@@ -15,6 +15,9 @@ jobs:
       run: |
         REPOS=$(curl https://api.github.com/users/ScorchChamp/repos?per_page=100)
         echo $(echo $REPOS | jq -r '.[] | select(try .has_pages==true) | .name | map("https://scorchchamp.github.io/" + .)') > sitemap.txt
+    - name: Print the file
+      run: cat sitemap.txt
+
     - name: Upload txt file to GitHub
       uses: actions/upload-artifact@v2
       with:
