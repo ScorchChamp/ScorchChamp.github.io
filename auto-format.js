@@ -1,29 +1,45 @@
+const author = "ScorchChamp";
+const splitted = document.location.href.split("/");
+const homePage = document.location.origin
+capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-document.getElementsByTagName('body')[0].innerHTML = `<div class='app-container' id='app-container'>${document.getElementsByTagName('body')[0].innerHTML}</div>`
-const appContainer = document.getElementById('app-container');
-const firstChild = appContainer.firstChild;
-const headerElement = document.createElement("div");
-const footerElement = document.createElement("div");
-const h1Element = document.createElement("h1");
+function getRepos(callback) {
+    localStorage.getItem('repos') !== null ? callback(JSON.parse(localStorage.getItem('repos'))) :
+        fetch(`https://api.github.com/users/${author}/repos?per_page=100`)
+            .then(data => data.json())
+            .then(repos => {
+                console.log('CALLING GITHUB');
+                localStorage.setItem('repos', JSON.stringify(repos));
+                callback(repos)
+            })
+}
 
-document.getElementsByTagName('html')[0].setAttribute('lang', 'en');
+window.addEventListener("load", function () {
+    document.getElementsByTagName('body')[0].innerHTML = `<div class='app-container' id='app-container'>${document.getElementsByTagName('body')[0].innerHTML}</div>`
+    const appContainer = document.getElementById('app-container');
+    const firstChild = appContainer.firstChild;
+    const headerElement = document.createElement("div");
+    const footerElement = document.createElement("div");
+    const h1Element = document.createElement("h1");
 
-let repoName = splitted[splitted.length - 2];
-let username = splitted[splitted.length - 3].split(".")[0];
-username === '' ? username = repoName.split('.')[0] : '';
+    document.getElementsByTagName('html')[0].setAttribute('lang', 'en');
+
+    let repoName = splitted[splitted.length - 2];
+    let username = splitted[splitted.length - 3].split(".")[0];
+    username === '' ? username = repoName.split('.')[0] : '';
 
 
-document.title = repoName.replaceAll("-", " ").replaceAll("_", " ");
-h1Element.textContent = capitalizeFirstLetter(document.title);
+    document.title = repoName.replaceAll("-", " ").replaceAll("_", " ");
+    h1Element.textContent = capitalizeFirstLetter(document.title);
 
-headerElement.classList.add("header");
-headerElement.innerHTML = `
+    headerElement.classList.add("header");
+    headerElement.innerHTML = `
         <a href="${homePage}" aria-label="Go back to Scorchchamp's homepage!">
             <div class="header-title" id="header-description">${capitalizeFirstLetter(username)}</div>
         </a>
     `
-footerElement.classList.add("footer");
-footerElement.innerHTML = `
+    footerElement.classList.add("footer");
+    footerElement.innerHTML = `
         <div class="footer-group">
             <div class="footer-header">Information</div>
             <div class="information">This page is part of the 365 day challenge by Scorchchamp.</div>
@@ -43,22 +59,23 @@ footerElement.innerHTML = `
 
 
 
-getRepos(function (data) {
-    data.forEach(repo => {
-        if (repo.name.toLowerCase() === repoName.toLowerCase()) {
-            const h2Element = document.createElement("h2");
-            h2Element.classList.add("undertitle");
-            h2Element.textContent = repo.description;
-            appContainer.insertBefore(h2Element, firstChild);
+    getRepos(function (data) {
+        data.forEach(repo => {
+            if (repo.name.toLowerCase() === repoName.toLowerCase()) {
+                const h2Element = document.createElement("h2");
+                h2Element.classList.add("undertitle");
+                h2Element.textContent = repo.description;
+                appContainer.insertBefore(h2Element, firstChild);
 
-            const metaDescription = document.createElement('meta');
-            metaDescription.setAttribute('name', 'description');
-            metaDescription.setAttribute('content', repo.description);
-            document.head.appendChild(metaDescription);
-        }
+                const metaDescription = document.createElement('meta');
+                metaDescription.setAttribute('name', 'description');
+                metaDescription.setAttribute('content', repo.description);
+                document.head.appendChild(metaDescription);
+            }
+        })
     })
-})
 
-document.body.insertBefore(headerElement, document.body.firstChild);
-appContainer.insertBefore(h1Element, firstChild);
-document.body.append(footerElement);
+    document.body.insertBefore(headerElement, document.body.firstChild);
+    appContainer.insertBefore(h1Element, firstChild);
+    document.body.append(footerElement);
+})
