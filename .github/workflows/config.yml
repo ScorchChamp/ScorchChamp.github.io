@@ -35,3 +35,5 @@ jobs:
           git add sitemap.txt &&\
           git commit -m "Add sitemap.txt" &&\
           git push
+    - name: Notify google
+      run: curl https://www.google.com/ping?sitemap=https://scorchchamp.github.io/sitemap.txt
