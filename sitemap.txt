@@ -1,3 +1,4 @@
+https://scorchchamp.github.io/ChatGPT-Node
 https://scorchchamp.github.io/DALLE-Youtube-Automation
 https://scorchchamp.github.io/Darkmode-Switch
 https://scorchchamp.github.io/Digital-Scrolling-Clock
