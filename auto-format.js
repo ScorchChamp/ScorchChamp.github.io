@@ -57,7 +57,9 @@ window.addEventListener("load", function () {
         <div class="copyright">&#169; ${capitalizeFirstLetter(username)} - 2023 All rights reserved</div>
     `
 
-
+    document.body.insertBefore(headerElement, document.body.firstChild);
+    appContainer.insertBefore(h1Element, firstChild);
+    document.body.append(footerElement);
 
     getRepos(function (data) {
         data.forEach(repo => {
@@ -66,16 +68,7 @@ window.addEventListener("load", function () {
                 h2Element.classList.add("undertitle");
                 h2Element.textContent = repo.description;
                 appContainer.insertBefore(h2Element, firstChild);
-
-                const metaDescription = document.createElement('meta');
-                metaDescription.setAttribute('name', 'description');
-                metaDescription.setAttribute('content', repo.description);
-                document.head.appendChild(metaDescription);
             }
         })
     })
-
-    document.body.insertBefore(headerElement, document.body.firstChild);
-    appContainer.insertBefore(h1Element, firstChild);
-    document.body.append(footerElement);
 })
