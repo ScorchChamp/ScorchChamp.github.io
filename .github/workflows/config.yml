@@ -25,7 +25,7 @@ jobs:
         name: sitemap
         path: sitemap.txt
     - name: run step if REPOS is empty
-      if: ${{!contains(env.REPOS, 'https')}}
+      if: ${{!contains(REPOS, 'https')}}
       run: exit 0
     - name: Commit and push the artifact
       continue-on-error: true
