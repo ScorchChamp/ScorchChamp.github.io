@@ -56,12 +56,6 @@ p {
     font-size: 25px;
     word-wrap: break-word;
 }
-
-.last-updated {
-    color: var(--onPrimaryC);
-    font-weight: 200;
-}
-
 .repo-container a {
     color: var(--onPrimary);
     text-decoration: none;
@@ -70,7 +64,7 @@ p {
 }
 
 .repo-container {
-    padding: 10px;
+    padding: 1.6em;
     text-align: center;
     min-width: 15em;
     max-width: 15em;
@@ -172,16 +166,19 @@ input[type="file"] {
     width: 25%;
 }
 
+.last-updated p {
+    margin: 0;
+}
 
 .last-updated {
-    margin-top: 30%;
-    margin-bottom: 0;
+    padding: 1.2em;
+    background-color: var(--secondaryC);
     font-weight: 100;
     font-size: 80%;
+    color: var(--onSecondary);
 }
 
 .last-updated-time {
-    font-weight: 500;
     color: var(--tertiaryC);
 }
 

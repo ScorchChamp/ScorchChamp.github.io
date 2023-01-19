@@ -12,9 +12,11 @@ function parseRepo(repo) {
                     <h3 class="repo-name">${repo.name}</h3>
                     <div class="topics">${parseTopics(repo.topics)}</div>
                     <p>${repo.description}</p>
-                    <h4 class="last-updated">Last update <span class="last-updated-time">${parseTime(repo.updated_at)}</span></h4>
                 </div>
             </a>
+            <div class="last-updated">
+                <p>Last update</p><p class="last-updated-time">${parseTime(repo.updated_at)}</p>
+            </div>
             <a href="${repo.html_url}" target="_blank">
                 <div class="repo-source">
                     <p>View Sourcecode</p>
@@ -28,7 +30,7 @@ function parseRepo(repo) {
 function displayPages() {
     getRepos(function (pages) {
         pages = pages.filter(repo => repo.has_pages).sort((a, b) => (a.created_at > b.created_at) ? 1 : -1)
-        pages.forEach((page, index) => page.index = index+1)
+        pages.forEach((page, index) => page.index = index + 1)
         const container = document.querySelector('.container');
         container.innerHTML = pages.map(repo => parseRepo(repo))
             .join('');
@@ -43,9 +45,9 @@ function parseTime(timeString) {
     const minutes = Math.floor(diff / (1000 * 60));
     const hours = Math.floor(diff / (1000 * 60 * 60));
     return seconds < 60 ? `${seconds} second${(seconds > 1 ? "s" : "")} ago` :
-           minutes < 60 ? `${minutes} minute${(minutes > 1 ? "s" : "")} ago` :
-           hours < 24   ? `${hours} hour${(hours > 1 ? "s" : "")} ago` :
-           time.toDateString();
+        minutes < 60 ? `${minutes} minute${(minutes > 1 ? "s" : "")} ago` :
+            hours < 24 ? `${hours} hour${(hours > 1 ? "s" : "")} ago` :
+                time.toDateString();
 
 }
 

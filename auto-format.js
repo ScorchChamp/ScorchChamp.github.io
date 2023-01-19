@@ -4,9 +4,7 @@ const homePage = document.location.origin
 capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 function getRepos(callback) {
-    if (localStorage.getItem('repos') !== null) {
-        callback(JSON.parse(localStorage.getItem('repos')))
-    } else {
+    localStorage.getItem('repos') !== null ? callback(JSON.parse(localStorage.getItem('repos'))) :
         fetch(`https://api.github.com/users/${author}/repos?per_page=100`)
             .then(data => data.json())
             .then(repos => {
@@ -14,50 +12,21 @@ function getRepos(callback) {
                 localStorage.setItem('repos', JSON.stringify(repos));
                 callback(repos)
             })
-    }
 }
 
 window.addEventListener("load", function () {
-    document.getElementsByTagName('body')[0].innerHTML = `
-        <div class='app-container' id='app-container'>
-            ${document.getElementsByTagName('body')[0].innerHTML}
-        </div>
-    `
+    document.getElementsByTagName('body')[0].innerHTML = `<div class='app-container' id='app-container'>${document.getElementsByTagName('body')[0].innerHTML}</div>`
     const appContainer = document.getElementById('app-container');
     const firstChild = appContainer.firstChild;
     const headerElement = document.createElement("div");
     const footerElement = document.createElement("div");
     const h1Element = document.createElement("h1");
-    const adElement = document.createElement('ins');
-    const metaView = document.createElement('meta');
-    var head = document.getElementsByTagName('head')[0];
 
-    var link2 = document.createElement('link');
-    link2.id = 'css';
-    link2.rel = 'preload';
-    link2.href = `https://fonts.gstatic.com/s/firacode/v21/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKQ.woff`;
-    link2.as = 'font';
-    link2.type = 'font/woff2';
-    link2.toggleAttribute('crossorigin');
-    head.appendChild(link2);
+    document.getElementsByTagName('html')[0].setAttribute('lang', 'en');
 
-    var link3 = document.createElement('link');
-    link3.id = 'css';
-    link3.rel = 'stylesheet';
-    link3.type = 'text/css';
-    link3.href = `${document.location.origin}/style.css`;
-    link3.media = 'all';
-    head.appendChild(link3);
-
-    document.getElementsByTagName('html')[0].setAttribute('lang', 'en')
-    document.body.insertBefore(headerElement, document.body.firstChild);
-    appContainer.insertBefore(h1Element, firstChild);
-
-    let repoName = splitted[splitted.length - 2]
+    let repoName = splitted[splitted.length - 2];
     let username = splitted[splitted.length - 3].split(".")[0];
-    if (username === '') {
-        username = repoName.split('.')[0]
-    }
+    username === '' ? username = repoName.split('.')[0] : '';
 
 
     document.title = repoName.replaceAll("-", " ").replaceAll("_", " ");
@@ -104,23 +73,45 @@ window.addEventListener("load", function () {
                 document.head.appendChild(metaDescription);
             }
         })
-
     })
 
-    metaView.setAttribute('name', 'viewport');
-    metaView.setAttribute('content', 'width=device-width, initial-scale=1');
-    document.head.appendChild(metaView);
-
+    document.body.insertBefore(headerElement, document.body.firstChild);
+    appContainer.insertBefore(h1Element, firstChild);
     document.body.append(footerElement);
 })
 
+
+const metaView = document.createElement('meta');
+const metaCharset = document.createElement('meta');
 const adScript = document.createElement('script');
+const fontLinkOrigin = document.createElement('link');
+const styleLink = document.createElement('link');
+
+metaView.setAttribute('name', 'viewport');
+metaView.setAttribute('content', 'width=device-width, initial-scale=1');
+
+metaCharset.setAttribute('charset', 'utf-8');
+
 adScript.setAttribute('src', 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5779624385801311');
 adScript.setAttribute('crossorigin', 'anonymous');
 adScript.toggleAttribute('async');
+
+fontLinkOrigin.id = 'css';
+fontLinkOrigin.rel = 'preload';
+fontLinkOrigin.href = `https://fonts.gstatic.com/s/firacode/v21/uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7MOzlojwUKQ.woff`;
+fontLinkOrigin.as = 'font';
+fontLinkOrigin.type = 'font/woff2';
+fontLinkOrigin.toggleAttribute('crossorigin');
+
+styleLink.id = 'css';
+styleLink.rel = 'stylesheet';
+styleLink.type = 'text/css';
+styleLink.href = `${document.location.origin}/style.css`;
+styleLink.media = 'all';
+
+document.head.appendChild(fontLinkOrigin);
+document.head.appendChild(styleLink);
+document.head.appendChild(metaView);
+document.head.appendChild(metaCharset);
 document.head.appendChild(adScript);
 (adsbygoogle = window.adsbygoogle || []).push({});
-
-const metaCharset = document.createElement('meta');
-metaCharset.setAttribute('charset', 'utf-8');
-document.head.appendChild(metaCharset);
