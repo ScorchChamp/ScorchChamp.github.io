@@ -30,9 +30,6 @@ adScript.setAttribute('crossorigin', 'anonymous');
 adScript.toggleAttribute('async');
 document.head.appendChild(adScript);
 
-(adsbygoogle = window.adsbygoogle || []).push({});
-
-
 const author = "ScorchChamp";
 const splitted = document.location.href.split("/");
 const homePage = document.location.origin
