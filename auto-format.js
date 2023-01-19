@@ -60,23 +60,27 @@ window.addEventListener("load", function () {
     document.body.insertBefore(headerElement, document.body.firstChild);
     appContainer.insertBefore(h1Element, firstChild);
     document.body.append(footerElement);
+    getRepos(function (data) {
+        data.forEach(repo => {
+            if (repo.name.toLowerCase() === repoName.toLowerCase()) {
+                const h2Element = document.createElement("h2");
+                h2Element.classList.add("undertitle");
+                h2Element.textContent = repo.description;
+                appContainer.insertBefore(h2Element, firstChild);
+            }
+        })
+    })
 
 })
 getRepos(function (data) {
     data.forEach(repo => {
         if (repo.name.toLowerCase() === repoName.toLowerCase()) {
-            const h2Element = document.createElement("h2");
-            h2Element.classList.add("undertitle");
-            h2Element.textContent = repo.description;
-            appContainer.insertBefore(h2Element, firstChild);
-
             const metaDescription = document.createElement('meta');
             metaDescription.setAttribute('name', 'description');
             metaDescription.setAttribute('content', repo.description);
             document.head.appendChild(metaDescription);
         }
     })
-
 })
 
 const favicon = document.createElement('link');
