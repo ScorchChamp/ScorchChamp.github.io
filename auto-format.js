@@ -1,6 +1,10 @@
 const author = "ScorchChamp";
 const splitted = document.location.href.split("/");
 const homePage = document.location.origin
+const repoName = splitted[splitted.length - 2];
+let username = splitted[splitted.length - 3].split(".")[0];
+username === '' ? username = repoName.split('.')[0] : '';
+
 capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
 function getRepos(callback) {
@@ -23,10 +27,6 @@ window.addEventListener("load", function () {
     const h1Element = document.createElement("h1");
 
     document.getElementsByTagName('html')[0].setAttribute('lang', 'en');
-
-    let repoName = splitted[splitted.length - 2];
-    let username = splitted[splitted.length - 3].split(".")[0];
-    username === '' ? username = repoName.split('.')[0] : '';
 
 
     document.title = repoName.replaceAll("-", " ").replaceAll("_", " ");
@@ -76,4 +76,11 @@ getRepos(function (data) {
             document.head.appendChild(metaDescription);
         }
     })
+
 })
+
+const favicon = document.createElement('link');
+favicon.setAttribute('rel', 'icon');
+favicon.setAttribute('type', 'image/x-icon');
+favicon.setAttribute('href', "./favicon.ico");
+document.head.appendChild(favicon);
