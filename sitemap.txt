@@ -1,3 +1,5 @@
+https://scorchchamp.github.io/Base64-Decoder
+https://scorchchamp.github.io/Base64-Encoder
 https://scorchchamp.github.io/ChatGPT-Node
 https://scorchchamp.github.io/DALLE-Youtube-Automation
 https://scorchchamp.github.io/Darkmode-Switch
@@ -8,6 +10,7 @@ https://scorchchamp.github.io/External-IP-Finder
 https://scorchchamp.github.io/File-Keyword-Replacer
 https://scorchchamp.github.io/Image-Compression
 https://scorchchamp.github.io/Image-Pixels
+https://scorchchamp.github.io/password-strength-calculator
 https://scorchchamp.github.io/QR-Code-Generator
 https://scorchchamp.github.io/QR-Code-Reader
 https://scorchchamp.github.io/README.md-generator
