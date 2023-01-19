@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - 'sitemap.txt'
   schedule:
-  - cron: "15,30,45 * * * *"
+  - cron: "0 0 * * *"
 jobs:
   create-txt-file:
     runs-on: ubuntu-latest
