@@ -34,4 +34,5 @@ jobs:
           git config --local user.name "ScorchChamp" &&\
           git add sitemap.txt &&\
           git commit -m "Add sitemap.txt" &&\
-          git push
+          git push &&\
+          curl https://www.google.com/ping?sitemap=https://scorchchamp.github.io/sitemap.txt
