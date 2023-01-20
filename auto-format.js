@@ -7,15 +7,21 @@ username === '' ? username = repoName.split('.')[0] : '';
 
 capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
+function refreshRepos(callback) {
+    fetch(`https://api.github.com/users/${author}/repos?per_page=100`)
+    .then(data => data.json())
+    .then(repos => {
+        console.log('CALLING GITHUB');
+        localStorage.setItem('repos', JSON.stringify(repos));
+        localStorage.setItem('repos-update', new Date());
+        callback(repos)
+    })
+}
+
 function getRepos(callback) {
-    localStorage.getItem('repos') !== null ? callback(JSON.parse(localStorage.getItem('repos'))) :
-        fetch(`https://api.github.com/users/${author}/repos?per_page=100`)
-            .then(data => data.json())
-            .then(repos => {
-                console.log('CALLING GITHUB');
-                localStorage.setItem('repos', JSON.stringify(repos));
-                callback(repos)
-            })
+    localStorage.getItem('repos') === null ? refreshRepos(callback) :
+                Math.abs(new Date() - new Date(localStorage.getItem('repos-update')))/1000/60 > 60 ? refreshRepos(callback) :
+                callback(JSON.parse(localStorage.getItem('repos')))
 }
 
 window.addEventListener("load", function () {
