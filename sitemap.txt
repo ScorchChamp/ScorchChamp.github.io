@@ -19,6 +19,7 @@ https://scorchchamp.github.io/Secure-Password-Generator
 https://scorchchamp.github.io/Simple-Pong-Game
 https://scorchchamp.github.io/Snake
 https://scorchchamp.github.io/Spacebar-Counter
+https://scorchchamp.github.io/Spotify-playlist-compilator
 https://scorchchamp.github.io/Spotify-Top-Songs
 https://scorchchamp.github.io/Time-Since-Date
 https://scorchchamp.github.io/Weather-App
