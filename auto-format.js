@@ -92,5 +92,5 @@ getRepos(function (data) {
 const favicon = document.createElement('link');
 favicon.setAttribute('rel', 'icon');
 favicon.setAttribute('type', 'image/x-icon');
-favicon.setAttribute('href', "./favicon.ico");
+favicon.setAttribute('href', "https://scorchchamp.github.io/favicon.ico");
 document.head.appendChild(favicon);
