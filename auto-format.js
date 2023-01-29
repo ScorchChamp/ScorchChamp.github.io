@@ -40,9 +40,12 @@ window.addEventListener("load", function () {
 
     headerElement.classList.add("header");
     headerElement.innerHTML = `
-        <a href="${homePage}" aria-label="Go back to Scorchchamp's homepage!">
-            <div class="header-title" id="header-description">${capitalizeFirstLetter(username)}</div>
-        </a>
+    <a href="${homePage}" aria-label="Go back to Scorchchamp's homepage!">
+        <div class="header-title" id="header-description">ScorchChamp</div>
+    </a>
+    <a href="${homePage}/Project-Menu/" aria-label="Menu page   !">
+        <div class="header-title">| Menu</div>
+    </a>
     `
     footerElement.classList.add("footer");
     footerElement.innerHTML = `

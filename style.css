@@ -217,6 +217,7 @@ input[type="file"] {
     color: var(--onSurface);
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
 .header-title {
