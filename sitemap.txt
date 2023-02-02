@@ -6,8 +6,10 @@ https://scorchchamp.github.io/Darkmode-Switch
 https://scorchchamp.github.io/Digital-Scrolling-Clock
 https://scorchchamp.github.io/Doomsday-Clock
 https://scorchchamp.github.io/DVD-bounce
+https://scorchchamp.github.io/E2E-Encryption
 https://scorchchamp.github.io/External-IP-Finder
 https://scorchchamp.github.io/File-Keyword-Replacer
+https://scorchchamp.github.io/Floor-Planner
 https://scorchchamp.github.io/Hasher-Client
 https://scorchchamp.github.io/Home-Assistant
 https://scorchchamp.github.io/Image-Compression
