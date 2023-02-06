@@ -1,5 +1,6 @@
 https://scorchchamp.github.io/Base64-Decoder
 https://scorchchamp.github.io/Base64-Encoder
+https://scorchchamp.github.io/Character-Counter
 https://scorchchamp.github.io/ChatGPT-Node
 https://scorchchamp.github.io/DALLE-Youtube-Automation
 https://scorchchamp.github.io/Darkmode-Switch
@@ -16,6 +17,7 @@ https://scorchchamp.github.io/Image-Compression
 https://scorchchamp.github.io/Image-Pixels
 https://scorchchamp.github.io/password-strength-calculator
 https://scorchchamp.github.io/Pihole
+https://scorchchamp.github.io/Plain-Javascript-ChatApp
 https://scorchchamp.github.io/Project-Menu
 https://scorchchamp.github.io/QR-Code-Generator
 https://scorchchamp.github.io/QR-Code-Reader
