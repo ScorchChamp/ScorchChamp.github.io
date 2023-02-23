@@ -2,6 +2,7 @@ https://scorchchamp.github.io/barcode-generator
 https://scorchchamp.github.io/Base64-Decoder
 https://scorchchamp.github.io/Base64-Encoder
 https://scorchchamp.github.io/bitcoin-mining-simulation
+https://scorchchamp.github.io/blogs
 https://scorchchamp.github.io/Character-Counter
 https://scorchchamp.github.io/ChatGPT-Node
 https://scorchchamp.github.io/DALLE-Youtube-Automation
