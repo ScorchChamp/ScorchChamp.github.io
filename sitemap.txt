@@ -19,6 +19,7 @@ https://scorchchamp.github.io/Home-Assistant
 https://scorchchamp.github.io/Image-Compression
 https://scorchchamp.github.io/Image-Pixels
 https://scorchchamp.github.io/minecraft-structure-finder
+https://scorchchamp.github.io/natuurbrandrisico-kaart
 https://scorchchamp.github.io/password-strength-calculator
 https://scorchchamp.github.io/Pihole
 https://scorchchamp.github.io/Plain-Javascript-ChatApp
